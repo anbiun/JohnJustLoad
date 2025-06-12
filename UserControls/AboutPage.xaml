@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="JohnJustLoad.AboutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style x:Key="InfoCardStyle" TargetType="Border">
+            <Setter Property="Background" Value="#20FFFFFF"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="30"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="30" HorizontalAlignment="Center" MaxWidth="600">
+            <!-- App Logo/Icon -->
+            <Ellipse Width="100" Height="100" 
+                    Fill="#4CAF50" 
+                    Margin="0,0,0,20" 
+                    HorizontalAlignment="Center">
+                <Ellipse.Effect>
+                    <DropShadowEffect Color="#4CAF50" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
+                </Ellipse.Effect>
+            </Ellipse>
+
+            <!-- App Name -->
+            <TextBlock Text="Modern WPF App" 
+                      FontSize="32" 
+                      FontWeight="Bold" 
+                      Foreground="White" 
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,10"/>
+
+            <TextBlock Text="Version 1.0.0" 
+                      FontSize="16" 
+                      Foreground="#CCFFFFFF" 
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,30"/>
+
+            <!-- App Description -->
+            <Border Style="{StaticResource InfoCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="About This Application" 
+                              FontSize="20" 
+                              FontWeight="SemiBold" 
+                              Foreground="White" 
+                              Margin="0,0,0,15"/>
+
+                    <TextBlock Text="This is a modern WPF application built with .NET 9, featuring a beautiful glassmorphism design with Fluent Design principles. The application demonstrates contemporary UI/UX patterns including borderless windows, blur effects, and smooth navigation." 
+                              FontSize="14" 
+                              Foreground="#CCFFFFFF" 
+                              TextWrapping="Wrap" 
+                              LineHeight="22"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Technology Stack -->
+            <Border Style="{StaticResource InfoCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Technology Stack" 
+                              FontSize="18" 
+                              FontWeight="SemiBold" 
+                              Foreground="White" 
+                              Margin="0,0,0,15"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="#2196F3" CornerRadius="12" Padding="8,4">
+                            <TextBlock Text=".NET 9" FontSize="12" Foreground="White" FontWeight="Medium"/>
+                        </Border>
+                        <Border Background="#9C27B0" CornerRadius="12" Padding="8,4" Margin="10,0,0,0">
+                            <TextBlock Text="WPF" FontSize="12" Foreground="White" FontWeight="Medium"/>
+                        </Border>
+                        <Border Background="#FF9800" CornerRadius="12" Padding="8,4" Margin="10,0,0,0">
+                            <TextBlock Text="XAML" FontSize="12" Foreground="White" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Border Background="#4CAF50" CornerRadius="12" Padding="8,4">
+                            <TextBlock Text="Fluent Design" FontSize="12" Foreground="White" FontWeight="Medium"/>
+                        </Border>
+                        <Border Background="#E91E63" CornerRadius="12" Padding="8,4" Margin="10,0,0,0">
+                            <TextBlock Text="Glassmorphism" FontSize="12" Foreground="White" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Features -->
+            <Border Style="{StaticResource InfoCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Key Features" 
+                              FontSize="18" 
+                              FontWeight="SemiBold" 
+                              Foreground="White" 
+                              Margin="0,0,0,15"/>
+
+                    <StackPanel>
+                        <TextBlock Text="• Borderless window with custom title bar" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF" 
+                                  Margin="0,0,0,8"/>
+                        <TextBlock Text="• Glassmorphism background with blur effects" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF" 
+                                  Margin="0,0,0,8"/>
+                        <TextBlock Text="• Responsive navigation menu" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF" 
+                                  Margin="0,0,0,8"/>
+                        <TextBlock Text="• Modern card-based layout" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF" 
+                                  Margin="0,0,0,8"/>
+                        <TextBlock Text="• Smooth animations and transitions" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF" 
+                                  Margin="0,0,0,8"/>
+                        <TextBlock Text="• Cross-platform compatibility" 
+                                  FontSize="14" 
+                                  Foreground="#CCFFFFFF"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Contact Info -->
+            <Border Style="{StaticResource InfoCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Contact Information" 
+                              FontSize="18" 
+                              FontWeight="SemiBold" 
+                              Foreground="White" 
+                              Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Developer: Your Name" 
+                              FontSize="14" 
+                              Foreground="#CCFFFFFF" 
+                              Margin="0,0,0,8"/>
+                    <TextBlock Text="Email: contact@modernwpfapp.com" 
+                              FontSize="14" 
+                              Foreground="#CCFFFFFF" 
+                              Margin="0,0,0,8"/>
+                    <TextBlock Text="Website: www.modernwpfapp.com" 
+                              FontSize="14" 
+                              Foreground="#CCFFFFFF"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Copyright -->
+            <TextBlock Text="© 2025 Modern WPF App. All rights reserved." 
+                      FontSize="12" 
+                      Foreground="#99FFFFFF" 
+                      HorizontalAlignment="Center"
+                      Margin="0,20,0,0"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,218 @@
+<Window x:Class="JohnJustLoad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Modern WPF App" 
+        Height="700" 
+        Width="1200"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <!-- Glassmorphism Background Brush -->
+        <LinearGradientBrush x:Key="GlassBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FBC2EB" Offset="0"/>
+            <GradientStop Color="#A6C1EE" Offset="1"/>
+            <!--<GradientStop Color="#80FFFFFF" Offset="0"/>
+            <GradientStop Color="#60FFFFFF" Offset="0.5"/>
+            <GradientStop Color="#40FFFFFF" Offset="1"/>-->
+        </LinearGradientBrush>
+
+        <!-- Navigation Button Style -->
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,15"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                Margin="10,2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="Center"
+                                            Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#60FFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#40FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Title Bar Button Style -->
+        <Style x:Key="TitleBarButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="45"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#60FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Close Button Style -->
+        <Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E81123"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <!-- Main Container with Glassmorphism Effect -->
+    <Border CornerRadius="15" 
+            Background="{StaticResource GlassBrush}"
+            BorderBrush="#40FFFFFF" 
+            BorderThickness="1">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="20" ShadowDepth="0" Opacity="0.3"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <!-- Title Bar -->
+                <RowDefinition Height="*"/>
+                <!-- Content -->
+            </Grid.RowDefinitions>
+
+            <!-- Custom Title Bar -->
+            <Grid Grid.Row="0" Background="#80000000">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Title -->
+                <TextBlock Grid.Column="0" 
+                          Text="John Just Load"
+                          Foreground="White"
+                           FontFamily="{StaticResource AppFont}"
+                          FontSize="14"
+                          FontWeight="Medium"
+                          VerticalAlignment="Center"
+                          Margin="20,0,0,0"/>
+
+                <!-- Window Controls -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Style="{StaticResource TitleBarButtonStyle}" 
+                            Content="─" 
+                            Click="MinimizeWindow"/>
+                    <Button Style="{StaticResource CloseButtonStyle}" 
+                            Content="✕" 
+                            Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Main Content Area -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <!-- Navigation -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Content -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Navigation Panel -->
+                <Border Grid.Column="0" 
+                        Background="#60000000" 
+                        CornerRadius="0,0,0,15">
+                    <StackPanel Margin="0,20,0,0">
+                        <!-- Navigation Header -->
+                        <TextBlock Text="Navigation" 
+                                  Foreground="White" 
+                                  FontSize="18" 
+                                  FontWeight="Bold" 
+                                  Margin="20,0,20,20"/>
+
+                        <!-- Navigation Buttons -->
+                        <Button x:Name="HomeButton" 
+                                Style="{StaticResource NavButtonStyle}" 
+                                Content="🏠 หน้าหลัก" 
+                                Click="NavigateToHome"/>
+
+                        <Button x:Name="SettingsButton" 
+                                Style="{StaticResource NavButtonStyle}" 
+                                Content="⚙️ ตั้งค่า" 
+                                Click="NavigateToSettings"/>
+
+                        <Button x:Name="AboutButton" 
+                                Style="{StaticResource NavButtonStyle}" 
+                                Content="ℹ️ About" 
+                                Click="NavigateToAbout"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Content Area -->
+                <Border Grid.Column="1" 
+                        Background="#40FFFFFF" 
+                        CornerRadius="0,0,15,0" 
+                        Margin="1,0,0,0">
+                    <Grid>
+                        <!-- Default Welcome Content -->
+                        <Grid x:Name="WelcomeContent">
+                            <StackPanel HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center">
+                                <TextBlock Text="Welcome to Modern WPF App"
+                                           FontFamily="{StaticResource AppFont}"
+                                          FontSize="32" 
+                                          FontWeight="Bold" 
+                                          Foreground="White" 
+                                          HorizontalAlignment="Center" 
+                                          Margin="0,0,0,20"/>
+
+                                <TextBlock Text="Select a menu item to get started" 
+                                          FontSize="16" 
+                                           FontFamily="{StaticResource AppFont}"
+                                          Foreground="#CCFFFFFF" 
+                                          HorizontalAlignment="Center"/>
+
+                                <!-- Decorative Elements -->
+                                <Ellipse Width="100" Height="100" 
+                                        Fill="#20FFFFFF" 
+                                        Margin="0,40,0,0"/>
+                                <Ellipse Width="60" Height="60" 
+                                        Fill="#30FFFFFF" 
+                                        Margin="40,-80,0,0"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Content Container for Pages -->
+                        <ContentPresenter x:Name="ContentArea"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
