@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace JohnJustLoad
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for ConfigJMeter.xaml
     /// </summary>
-    public partial class HomePage : UserControl
+    public partial class ConfigJMeter : UserControl
     {
-        public HomePage()
+        public ConfigJMeter()
         {
             InitializeComponent();
-        }
-        private void BtnLoadTest_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You clicked the card!");
         }
     }
 }

@@ -4,12 +4,17 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <FontFamily x:Key="AppFont">Kanit</FontFamily>
+        <SolidColorBrush  x:Key="textPrimary">#7F55B1</SolidColorBrush>
+        <SolidColorBrush  x:Key="textSecond">#9B7EBD</SolidColorBrush>
         
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+            <Setter Property="Foreground" Value="{StaticResource textPrimary}" />
+            
         </Style>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+            <Setter Property="Foreground" Value="{StaticResource textPrimary}" />
         </Style>
 
         <!-- Global Gradient Background -->

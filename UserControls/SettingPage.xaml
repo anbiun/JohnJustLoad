@@ -1,5 +1,6 @@
 ﻿<UserControl x:Class="JohnJustLoad.SettingPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:local="clr-namespace:JohnJustLoad"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <UserControl.Resources>
@@ -38,17 +39,16 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="30">
             <!-- Page Header -->
-            <TextBlock Text="Settings" 
+            <TextBlock Text="ตั้งค่า"
+                      Foreground="White"
                       FontSize="28" 
                       FontWeight="Bold" 
-                      Foreground="White" 
                       Margin="0,0,0,30"/>
 
             <!-- General Settings -->
             <TextBlock Text="General" 
                       FontSize="18" 
                       FontWeight="SemiBold" 
-                      Foreground="White" 
                       Margin="0,0,0,15"/>
 
             <Border Style="{StaticResource SettingCardStyle}">
@@ -59,8 +59,8 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="Dark Mode" FontSize="16" Foreground="White" FontWeight="Medium"/>
-                        <TextBlock Text="Switch between light and dark theme" FontSize="12" Foreground="#CCFFFFFF"/>
+                        <TextBlock Text="Dark Mode" FontSize="16" FontWeight="Medium"/>
+                        <TextBlock Text="Switch between light and dark theme" FontSize="12" Foreground="{StaticResource textSecond}"/>
                     </StackPanel>
 
                     <ToggleButton Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" IsChecked="True"/>
@@ -75,8 +75,8 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="Notifications" FontSize="16" Foreground="White" FontWeight="Medium"/>
-                        <TextBlock Text="Enable system notifications" FontSize="12" Foreground="#CCFFFFFF"/>
+                        <TextBlock Text="Notifications" FontSize="16"  FontWeight="Medium"/>
+                        <TextBlock Text="Enable system notifications" FontSize="12" Foreground="{StaticResource textSecond}"/>
                     </StackPanel>
 
                     <ToggleButton Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" IsChecked="False"/>
@@ -87,13 +87,13 @@
             <TextBlock Text="Appearance" 
                       FontSize="18" 
                       FontWeight="SemiBold" 
-                      Foreground="White" 
+                       
                       Margin="0,20,0,15"/>
 
             <Border Style="{StaticResource SettingCardStyle}">
                 <StackPanel>
-                    <TextBlock Text="Language" FontSize="16" Foreground="White" FontWeight="Medium" Margin="0,0,0,10"/>
-                    <ComboBox SelectedIndex="0" Background="#30FFFFFF" Foreground="White" BorderThickness="0" Padding="10">
+                    <TextBlock Text="Language" FontSize="16"  FontWeight="Medium" Margin="0,0,0,10"/>
+                    <ComboBox SelectedIndex="0" Background="#30FFFFFF"  BorderThickness="0" Padding="10">
                         <ComboBoxItem Content="English" Foreground="Black"/>
                         <ComboBoxItem Content="ไทย" Foreground="Black"/>
                         <ComboBoxItem Content="中文" Foreground="Black"/>
@@ -103,7 +103,7 @@
 
             <Border Style="{StaticResource SettingCardStyle}">
                 <StackPanel>
-                    <TextBlock Text="Font Size" FontSize="16" Foreground="White" FontWeight="Medium" Margin="0,0,0,10"/>
+                    <TextBlock Text="Font Size" FontSize="16"  FontWeight="Medium" Margin="0,0,0,10"/>
                     <Slider Minimum="12" Maximum="24" Value="16" 
                            Background="Transparent" 
                            Foreground="#4CAF50"/>
@@ -114,16 +114,16 @@
             <TextBlock Text="Advanced" 
                       FontSize="18" 
                       FontWeight="SemiBold" 
-                      Foreground="White" 
+                       
                       Margin="0,20,0,15"/>
 
             <Border Style="{StaticResource SettingCardStyle}">
                 <StackPanel>
-                    <TextBlock Text="Reset Application" FontSize="16" Foreground="White" FontWeight="Medium" Margin="0,0,0,10"/>
-                    <TextBlock Text="This will reset all settings to default values" FontSize="12" Foreground="#CCFFFFFF" Margin="0,0,0,15"/>
+                    <TextBlock Text="Reset Application" FontSize="16"  FontWeight="Medium" Margin="0,0,0,10"/>
+                    <TextBlock Text="This will reset all settings to default values" FontSize="12" Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
                     <Button Content="Reset Settings" 
                            Background="#F44336" 
-                           Foreground="White" 
+                            
                            BorderThickness="0" 
                            Padding="15,8" 
                            FontSize="12"
@@ -151,6 +151,15 @@
                     </Button>
                 </StackPanel>
             </Border>
+
+            <Border>
+                <local:ConfigJMeter />
+                <!--<StackPanel>
+                </StackPanel>-->
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
+
+
 </UserControl>

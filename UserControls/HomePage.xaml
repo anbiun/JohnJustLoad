@@ -14,12 +14,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <Style x:Key="CardBtnStyle" TargetType="Border">
+            <Setter Property="Background" Value="#20FFFFFF"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="25"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0" Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#40FFFFFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <StackPanel Margin="30">
             <!-- Page Header -->
-            <TextBlock Text="Home Dashboard" 
+            <TextBlock Text="หน้าหลัก" 
                       FontSize="28" 
                       FontWeight="Bold" 
                       Foreground="White" 
@@ -27,18 +44,24 @@
 
             <!-- Stats Cards -->
             <UniformGrid Columns="3" Margin="0,0,0,30">
-                <Border Style="{StaticResource CardStyle}">
-                    <StackPanel>
-                        <TextBlock Text="📊" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                        <TextBlock Text="Total Users" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
-                        <TextBlock Text="1,234" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Border>
-
+                <Button Click="BtnLoadTest_Click" Background="Transparent" BorderBrush="{x:Null}" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Style="{StaticResource CardBtnStyle}">
+                                <StackPanel>
+                                    <TextBlock Text="📊" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                                    <TextBlock Text="LOAD TEST CLICK" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="1,234" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
                 <Border Style="{StaticResource CardStyle}">
                     <StackPanel>
                         <TextBlock Text="💰" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                        <TextBlock Text="Revenue" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
+                        <TextBlock Text="LINE NOTI" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
                         <TextBlock Text="$12,345" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Border>
@@ -46,7 +69,7 @@
                 <Border Style="{StaticResource CardStyle}">
                     <StackPanel>
                         <TextBlock Text="📈" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                        <TextBlock Text="Growth" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
+                        <TextBlock Text="RESULT" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
                         <TextBlock Text="+15.2%" FontSize="24" FontWeight="Bold" Foreground="#4CAF50" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Border>
