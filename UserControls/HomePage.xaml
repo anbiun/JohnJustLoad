@@ -50,19 +50,18 @@
                             <Border Style="{StaticResource CardBtnStyle}">
                                 <StackPanel>
                                     <TextBlock Text="📊" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                                    <TextBlock Text="LOAD TEST CLICK" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="1,234" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="LOAD TEST" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
+                                    <!--<TextBlock Text="1,234" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>-->
                                 </StackPanel>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                
+
                 <Border Style="{StaticResource CardStyle}">
                     <StackPanel>
-                        <TextBlock Text="💰" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                        <Image Source="/Assets/line_logo.png" Width="48" Height="48" HorizontalAlignment="Center" Margin="0,0,0,10"/>
                         <TextBlock Text="LINE NOTI" FontSize="16" Foreground="#CCFFFFFF" HorizontalAlignment="Center"/>
-                        <TextBlock Text="$12,345" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Border>
 
@@ -78,13 +77,13 @@
             <!-- Main Content -->
             <Border Style="{StaticResource CardStyle}">
                 <StackPanel>
-                    <TextBlock Text="Welcome Message" 
+                    <TextBlock Text="เริ่มการ Load Test" 
                               FontSize="20" 
                               FontWeight="SemiBold" 
                               Foreground="White" 
                               Margin="0,0,0,15"/>
 
-                    <TextBlock Text="This is your modern WPF application dashboard. The glassmorphism design provides a sleek, translucent interface that's both beautiful and functional." 
+                    <TextBlock Text="หลังจากคลิกที่ปุ่มเริ่มแล้ว จะแสดงการรัน Load Test ที่ส่วนนี้" 
                               FontSize="14" 
                               Foreground="#CCFFFFFF" 
                               TextWrapping="Wrap" 
@@ -92,7 +91,7 @@
                               Margin="0,0,0,20"/>
 
                     <Button Content="Get Started" 
-                           Background="#2196F3" 
+                           Background="{StaticResource textSecond}" 
                            Foreground="White" 
                            BorderThickness="0" 
                            Padding="20,10" 
@@ -114,7 +113,7 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#1976D2"/>
+                                        <Setter Property="Background" Value="White"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>

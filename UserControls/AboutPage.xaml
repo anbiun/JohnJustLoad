@@ -15,21 +15,31 @@
         <StackPanel Margin="30" HorizontalAlignment="Center" MaxWidth="600">
             <!-- App Logo/Icon -->
             <Ellipse Width="100" Height="100" 
-                    Fill="#4CAF50" 
                     Margin="0,0,0,20" 
                     HorizontalAlignment="Center">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/assets/about_img.png" Stretch="UniformToFill"/>
+                </Ellipse.Fill>
                 <Ellipse.Effect>
-                    <DropShadowEffect Color="#4CAF50" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
+                    <DropShadowEffect Color="Black" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
                 </Ellipse.Effect>
             </Ellipse>
 
             <!-- App Name -->
-            <TextBlock Text="Modern WPF App" 
+            <TextBlock Text="JohnJust Load App" 
                       FontSize="32" 
                       FontWeight="Bold" 
                       Foreground="White" 
                       HorizontalAlignment="Center"
-                      Margin="0,0,0,10"/>
+                      Margin="0,0,0,10">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black"
+                          BlurRadius="10"
+                          ShadowDepth="2"
+                          Direction="315"
+                          Opacity="0.5"/>
+                </TextBlock.Effect>
+            </TextBlock>
 
             <TextBlock Text="Version 1.0.0" 
                       FontSize="16" 
@@ -40,16 +50,17 @@
             <!-- App Description -->
             <Border Style="{StaticResource InfoCardStyle}">
                 <StackPanel>
-                    <TextBlock Text="About This Application" 
+                    <TextBlock Text="เกี่ยวกับแอพ" 
                               FontSize="20" 
                               FontWeight="SemiBold" 
                               Foreground="White" 
                               Margin="0,0,0,15"/>
 
-                    <TextBlock Text="This is a modern WPF application built with .NET 9, featuring a beautiful glassmorphism design with Fluent Design principles. The application demonstrates contemporary UI/UX patterns including borderless windows, blur effects, and smooth navigation." 
+                    <TextBlock Text="WPF สร้างด้วย .NET 9 โดดเด่นด้วยการออกแบบ Glassmorphism ที่สวยงามตามหลักการของ Fluent Design แอปพลิเคชันนี้แสดงให้เห็นถึงรูปแบบ UI/UX ร่วมสมัย รวมถึงหน้าต่างไร้ขอบ เอฟเฟกต์เบลอ และ Performance ที่ราบรื่น" 
                               FontSize="14" 
-                              Foreground="#CCFFFFFF" 
+                              Foreground="White"
                               TextWrapping="Wrap" 
+                              TextAlignment="Justify"
                               LineHeight="22"/>
                 </StackPanel>
             </Border>

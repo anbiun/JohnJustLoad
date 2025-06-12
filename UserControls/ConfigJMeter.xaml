@@ -10,54 +10,95 @@
             <Setter Property="Margin" Value="0,0,0,15"/>
         </Style>
     </UserControl.Resources>
-        
-    <StackPanel>
-        <!-- Page Header -->
 
-            <!-- General Settings -->
-        <TextBlock Text="ตั้งค่า JMeter" 
+    <StackPanel>
+        <TextBlock Text="JMeter Config" 
                       FontSize="18" 
                       FontWeight="SemiBold" 
-                      Margin="0,20,0,15"/>
+                      Margin="0,0,0,15"/>
+        
+        <!--Bin Folder-->
         <Border Style="{StaticResource SettingCardStyle}">
             <StackPanel>
                 <TextBlock Text="Folder BIN" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
-                <TextBlock Text="C:/ProgramFile/Jmeter..." FontSize="12" 
+                <TextBlock Text="C:/ProgramFile/Jmeter-5.4.3/Bin..." FontSize="12" 
                            Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
                 <Button Content="Browse..." 
-                           Background="#7F55B1" 
-                           Foreground="White" 
+                           Background="White" 
+                           Foreground="White"
                            BorderThickness="0" 
                            Padding="15,8" 
                            FontSize="12"
+                           Style="{StaticResource PurpleButtonStyle}"
                            HorizontalAlignment="Left">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border Background="{TemplateBinding Background}" 
-                                                   CornerRadius="6" 
-                                                   Padding="{TemplateBinding Padding}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#D32F2F"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                </Button>
+
+
+            </StackPanel>
+        </Border>
+        
+        <!--JMX File-->
+        <Border Style="{StaticResource SettingCardStyle}">
+            <StackPanel>
+                <TextBlock Text="JMX File (.jmx)" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+                <TextBlock Text="C:/ProgramFile/Loadtest.jmx" FontSize="12" 
+               Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
+                            <Button Content="Browse..." 
+               Background="White" 
+               Foreground="White"
+               BorderThickness="0" 
+               Padding="15,8" 
+               FontSize="12"
+               Style="{StaticResource PurpleButtonStyle}"
+               HorizontalAlignment="Left">
                 </Button>
             </StackPanel>
         </Border>
 
-        <!-- Appearance Settings -->
+        <TextBlock Text="Load Test Output Result" 
+                      FontSize="18" 
+                      FontWeight="SemiBold" 
+                      Margin="0,20,0,15"/>
 
-        <!-- Advanced Settings -->
+        <!--Result Path-->
+        <Border Style="{StaticResource SettingCardStyle}">
+            <StackPanel>
+                <TextBlock Text="Output Path" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+                <TextBlock Text="C:/LoadTestOutput/..." FontSize="12" 
+             Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
+                <Button Content="Browse..." 
+             Background="White" 
+             Foreground="White"
+             BorderThickness="0" 
+             Padding="15,8" 
+             FontSize="12"
+             Style="{StaticResource PurpleButtonStyle}"
+             HorizontalAlignment="Left">
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <!--Result File-->
+        <Border Style="{StaticResource SettingCardStyle}">
+            <StackPanel>
+                <TextBlock Text="Result File Name (.csv)" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+                <TextBlock Text="C:/Output/LoadTestResult.csv" FontSize="12" 
+                   Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
+                <TextBox Style="{StaticResource TextBoxModern}"
+                     Text="Result.csv" />
+            </StackPanel>
+        </Border>
+
+        <!--HTML Folder-->
+        <Border Style="{StaticResource SettingCardStyle}">
+            <StackPanel>
+                <TextBlock Text="HTML Folder Name" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+                <TextBlock Text="C:/Output/HTML" FontSize="12" 
+            Foreground="{StaticResource textSecond}" Margin="0,0,0,15"/>
+                <TextBox Style="{StaticResource TextBoxModern}"
+                     Text="HTMLOutput" />
+            </StackPanel>
+        </Border>
     </StackPanel>
-    
+
 </UserControl>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,8 +6,26 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="assets\about_img.png" />
+    <None Remove="assets\line_fill.svg" />
+    <None Remove="assets\line_logo.png" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="assets\about_img.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\line_fill.svg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\line_logo.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
 	</ItemGroup>
 
 </Project>
